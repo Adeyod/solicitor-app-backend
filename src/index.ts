@@ -68,6 +68,7 @@ console.log('templatesPath found:', templatesPath);
 console.log('templatesUrl found:', templatesUrl);
 try {
   const templateFiles = fs.readdirSync(templatesPath);
+
   console.log('Templates found:', templateFiles);
 } catch (err) {
   console.error('Error reading templates folder:', err);

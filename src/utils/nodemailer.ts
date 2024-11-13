@@ -40,6 +40,12 @@ const getMailTemplate = (filePath: string, data: {}) => {
     'templates',
     filePath
   );
+
+  if (!fs.existsSync(templatePath)) {
+    console.error(`Template file not found at ${templatePath}`);
+    throw new Error('Template file not found!');
+  }
+
   console.log('Resolved template path:', templatePath);
   const template = fs.readFileSync(templatePath, 'utf8');
   console.log('THE TEMPLATE:', template);
