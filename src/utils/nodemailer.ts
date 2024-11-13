@@ -7,8 +7,27 @@ import { EmailType } from '../constants/types';
 
 require('dotenv').config();
 
+// const getMailTemplate = (filePath: string, data: {}) => {
+//   const templatePath = path.join(__dirname, './templates', filePath);
+//   const template = fs.readFileSync(templatePath, 'utf8');
+//   return ejs.render(template, data);
+// };
+
 const getMailTemplate = (filePath: string, data: {}) => {
-  const templatePath = path.join(__dirname, './templates', filePath);
+  // Adjust the path according to your directory structure
+  const templatePath = path.join(
+    __dirname,
+    '..',
+    'utils',
+    'templates',
+    filePath
+  );
+  console.log('Resolved template path:', templatePath);
+
+  if (!fs.existsSync(templatePath)) {
+    throw new Error(`Template file not found: ${templatePath}`);
+  }
+
   const template = fs.readFileSync(templatePath, 'utf8');
   return ejs.render(template, data);
 };
