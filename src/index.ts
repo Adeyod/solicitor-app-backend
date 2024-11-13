@@ -65,8 +65,8 @@ const templatesUrl = path.join(
   'emailTemplate.ejs'
 );
 console.log('templatesPath found:', templatesPath);
-console.log('templatesUrl found:', templatesUrl);
 try {
+  console.log('templatesUrl found:', templatesUrl);
   const templateFiles = fs.readdirSync(templatesPath);
 
   console.log('Templates found:', templateFiles);

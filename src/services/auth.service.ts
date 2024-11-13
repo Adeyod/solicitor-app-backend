@@ -66,7 +66,7 @@ const registerNewUser = async (payload: UserObj) => {
     purpose: VerificationCodeType.EmailVerification,
   }).save();
 
-  const link = `${process.env.FRONTEND_URL}email-verification?user_id=${newUser._id}&token=${newToken.token}`;
+  const link = `${process.env.FRONTEND_URL}/email-verification?user_id=${newUser._id}&token=${newToken.token}`;
 
   await sendEmailVerification({
     email: newUser.email,
@@ -145,9 +145,9 @@ const logUserIn = async (
         purpose: VerificationCodeType.EmailVerification,
       }).save();
 
-      link = `${process.env.FRONTEND_URL}email-verification?user_id=${userExist._id}&token=${newToken.token}`;
+      link = `${process.env.FRONTEND_URL}/email-verification?user_id=${userExist._id}&token=${newToken.token}`;
     } else {
-      link = `${process.env.FRONTEND_URL}email-verification?user_id=${userExist._id}&token=${activeTokenResult.token}`;
+      link = `${process.env.FRONTEND_URL}/email-verification?user_id=${userExist._id}&token=${activeTokenResult.token}`;
     }
 
     await sendEmailVerification({
