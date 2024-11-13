@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 });
 
 console.log('Checking templates folder...');
-const templatesPath = path.join(__dirname, 'dist', 'utils', 'templates');
+const templatesPath = path.join(__dirname, 'utils', 'templates');
 try {
   const templateFiles = fs.readdirSync(templatesPath);
   console.log('Templates found:', templateFiles);
