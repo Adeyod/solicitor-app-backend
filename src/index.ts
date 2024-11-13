@@ -18,7 +18,10 @@ connectDB;
 
 const port = process.env.PORT || 3300;
 
-const allowedOrigins: string[] = [process.env.FRONTEND_URL || ''];
+const allowedOrigins: string[] = [
+  process.env.FRONTEND_URL || '',
+  'https://solicitor-app-frontend.onrender.com/',
+];
 
 const corsOptions: CorsOptions = {
   origin: (
