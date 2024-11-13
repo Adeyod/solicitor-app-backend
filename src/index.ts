@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
   });
 });
 
-cron.schedule('* * * * *', async () => {
+cron.schedule('*/30 * * * *', async () => {
   console.log('API is running');
   try {
     const response = await fetch('https://solicitor-app-backend.onrender.com');
