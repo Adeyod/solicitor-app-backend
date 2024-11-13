@@ -31,6 +31,8 @@ const fetchLawyers = async (
     throw new AppError('Lawyer not found.', 404);
   }
 
+  query = query.sort({ createdAt: -1 });
+
   const offset = (page - 1) * limit;
 
   const count = await User.countDocuments({
@@ -80,6 +82,8 @@ const fetchClients = async (
   if (!query) {
     throw new AppError('Client not found.', 404);
   }
+
+  query = query.sort({ createdAt: -1 });
 
   const offset = (page - 1) * limit;
 
@@ -141,6 +145,8 @@ const fetchWorkers = async (
   }
 
   const offset = (page - 1) * limit;
+
+  query = query.sort({ createdAt: -1 });
 
   const count = await User.countDocuments({
     role: 'worker',

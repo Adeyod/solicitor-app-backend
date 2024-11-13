@@ -58,6 +58,8 @@ const fetchAllCases = async (
     throw new AppError('Cases can not be found', 404);
   }
 
+  query = query.sort({ createdAt: -1 });
+
   const offset = (page - 1) * limit;
 
   const count = await Case.countDocuments();
