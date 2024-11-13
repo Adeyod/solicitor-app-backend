@@ -81,7 +81,11 @@ const sendEmailVerification = async ({
       subject: 'Email verification',
       // html: emailVerificationContent,
 
-      html: `${first_name}, please verify your email by clicking this link ${link}
+      html: `
+      <div>
+      <p>${first_name}, Thank you for registering. Please verify your account as this link expires in 30 mins</p>
+      <a href=${link}>Click here to verify your account...</a>
+      </div>
       `,
     });
 

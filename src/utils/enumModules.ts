@@ -5,6 +5,7 @@ const caseTypeEnum = ['Civil', 'Criminal', 'Family', 'Corporate', 'Property'];
 const allowedEmails = [
   'ayodejiadebolu@gmail.com',
   'votinggivers@gmail.com',
+  'ourgallery247@gmail.com',
   'taiwo.tope@proton.me',
 ];
 
