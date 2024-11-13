@@ -71,15 +71,18 @@ const sendEmailVerification = async ({
   link,
 }: EmailType) => {
   try {
-    const emailVerificationContent = getMailTemplate('emailTemplate.ejs', {
-      first_name,
-      link,
-    });
+    // const emailVerificationContent = getMailTemplate('emailTemplate.ejs', {
+    //   first_name,
+    //   link,
+    // });
     const info = await transporter.sendMail({
       from: process.env.NODEMAILER_USER,
       to: email,
       subject: 'Email verification',
-      html: emailVerificationContent,
+      // html: emailVerificationContent,
+
+      html: `${first_name}, please verify your email by clicking this link ${link}
+      `,
     });
 
     return info;
