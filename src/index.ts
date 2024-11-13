@@ -58,6 +58,14 @@ app.get('/', (req, res) => {
 
 console.log('Checking templates folder...');
 const templatesPath = path.join(__dirname, 'utils', 'templates');
+const templatesUrl = path.join(
+  __dirname,
+  'utils',
+  'templates',
+  'emailTemplate.ejs'
+);
+console.log('templatesPath found:', templatesPath);
+console.log('templatesUrl found:', templatesUrl);
 try {
   const templateFiles = fs.readdirSync(templatesPath);
   console.log('Templates found:', templateFiles);
