@@ -35,7 +35,7 @@ const registerNewUser = async (payload: UserObj) => {
   );
 
   if (existingUser) {
-    throw new AppError('User with this email already exists', 409);
+    throw new AppError('User with this email or username already exists', 409);
   }
 
   const hashedPassword = await bcrypt.hash(trimmedPassword, 10);
