@@ -20,7 +20,7 @@ const port = process.env.PORT || 3300;
 
 const allowedOrigins: string[] = [
   process.env.FRONTEND_URL || '',
-  'https://solicitor-app-frontend.onrender.com/',
+  'https://solicitor-app-frontend.onrender.com',
 ];
 
 const corsOptions: CorsOptions = {
@@ -42,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use(helmet());
 
