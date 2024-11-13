@@ -11,6 +11,8 @@ import CaseRoute from './routes/case.route';
 import connectDB from './DBConfig/DBConnect';
 import { errorHandler } from './middleware/errorHandler';
 import cron from 'node-cron';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 
@@ -53,6 +55,15 @@ app.get('/', (req, res) => {
     success: true,
   });
 });
+
+console.log('Checking templates folder...');
+const templatesPath = path.join(__dirname, 'dist', 'utils', 'templates');
+try {
+  const templateFiles = fs.readdirSync(templatesPath);
+  console.log('Templates found:', templateFiles);
+} catch (err) {
+  console.error('Error reading templates folder:', err);
+}
 
 cron.schedule('*/30 * * * *', async () => {
   console.log('API is running');

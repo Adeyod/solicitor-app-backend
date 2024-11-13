@@ -13,9 +13,27 @@ require('dotenv').config();
 //   return ejs.render(template, data);
 // };
 
+// const getMailTemplate = (filePath: string, data: {}) => {
+//   // Adjust the path according to your directory structure
+//   const templatePath = path.join(
+//     __dirname,
+//     '..',
+//     'utils',
+//     'templates',
+//     filePath
+//   );
+//   console.log('Resolved template path:', templatePath);
+
+//   if (!fs.existsSync(templatePath)) {
+//     throw new Error(`Template file not found: ${templatePath}`);
+//   }
+
+//   const template = fs.readFileSync(templatePath, 'utf8');
+//   return ejs.render(template, data);
+// };
+
 const getMailTemplate = (filePath: string, data: {}) => {
-  // Adjust the path according to your directory structure
-  const templatePath = path.join(
+  const templatePath = path.resolve(
     __dirname,
     '..',
     'utils',
@@ -23,12 +41,8 @@ const getMailTemplate = (filePath: string, data: {}) => {
     filePath
   );
   console.log('Resolved template path:', templatePath);
-
-  if (!fs.existsSync(templatePath)) {
-    throw new Error(`Template file not found: ${templatePath}`);
-  }
-
   const template = fs.readFileSync(templatePath, 'utf8');
+  console.log('THE TEMPLATE:', template);
   return ejs.render(template, data);
 };
 
