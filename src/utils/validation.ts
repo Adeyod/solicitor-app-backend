@@ -31,7 +31,6 @@ const joiValidation = <
     | 'case-creation'
 ): { success: boolean; value: T } => {
   let validationSchema;
-  console.log('VALIDATION PAYLOAD:', payload);
 
   switch (validationType) {
     case 'register':
@@ -164,7 +163,6 @@ const joiValidation = <
 
       const { error, value } = validationSchema.validate({ email: payload });
       if (error) {
-        console.log(error);
         throw new Error(error.details[0].message);
       }
 

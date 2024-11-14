@@ -86,8 +86,8 @@ const loginUser = catchErrors(async (req, res) => {
   return res
     .cookie('token', token, {
       httpOnly: true,
-      sameSite: 'none', // Needed during production or deployment for HTTPS
-      secure: true, // Needed during production or deployment for HTTPS
+      // sameSite: 'none', // Needed during production or deployment for HTTPS
+      // secure: true, // Needed during production or deployment for HTTPS
       maxAge: 15 * 24 * 60 * 60 * 1000,
     })
     .status(200)

@@ -134,7 +134,7 @@ const getClientDetails = catchErrors(async (req, res) => {
   const response = await fetchClientDetails(clientId);
 
   const { password, ...others } = response;
-  console.log('CONTROLLER: ', others);
+  console.log('CLIENT DETAILS: ', others);
 
   return res.status(200).json({
     message: 'Client details fetched successfully',
@@ -152,14 +152,14 @@ const getUserProfile = catchErrors(async (req, res) => {
   }
 
   const response = await fetchUserDetails(user);
-  console.log('USER PROFILE CONTROLLER: ', response);
 
   const { password, ...others } = response;
+  console.log('USER PROFILE CONTROLLER: ', others);
 
   return res.status(200).json({
     message: 'Profile fetched successfully',
     success: true,
-    user: response,
+    user: others,
   });
 });
 
